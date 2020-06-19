@@ -29,4 +29,12 @@ class AuthController extends Controller
     {
         $this->userModel = $userModel;
     }
+    
+    /**
+     * @Route("/login", name="login", methods={"GET"})
+     * @throws \Exception
+     */
+    public function loginView() {
+        return $this->render('login.html.twig');
+    }
 }
