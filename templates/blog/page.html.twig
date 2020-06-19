@@ -20,6 +20,7 @@
         {% endfor %}
         <form action="/comment/create/{{ post.id }}" method="post">
             <h1>Create a new Comment</h1>
+            <input type="text" class="form-control" name="name" id="postId" aria-describedby="postIdHelp" placeholder="postId" value="{{ post.id }}">
             <div class="form-group">
                 <label for="name">name</label>
                 <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" placeholder="name">
