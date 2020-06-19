@@ -55,7 +55,7 @@ class Comment
      */
     public function populate(array $array): ?self
     {
-
+        
         if (!empty($array['id']) ) {
             $this->setId($array['id']);
         }
@@ -185,16 +185,10 @@ class Comment
     {
         $array = [
             'id'        => $this->getId(),
-            'firstName' => $this->getFirstName(),
-            'lastName'  => $this->getLastName(),
-            'birthday'  => $this->getBirthday()->format('Y-m-d'),
-            'streetAddress'  => $this->getStreetAddress(),
-            'zip'  => $this->getZip(),
-            'city'  => $this->getCity(),
-            'country'  => $this->getCountry(),
-            'phone'  => $this->getPhone(),
-            'email'     => $this->getEmail(),
-            'picture'      => $this->getPicture(),
+            'post_id' => $this->getPostId(),
+            'email' => $this->getName(),
+            'url' => $this->getUrl(),
+            'comment' => $this->getComment(),
             'createdAt'    => $this->getCreatedAt()
         ];
 

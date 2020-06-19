@@ -14,12 +14,18 @@ interface CommentRepositoryInterface
      * @return Comment|null
      */
     public function getAll(): ?array;
-
+    
     /**
      * @param string $id
      * @return Comment|null
      */
-    public function getByPostId(string $id): ?Comment;
+    public function getById(string $id): ?Comment;
+    
+    /**
+     * @param string $id
+     * @return Comment|null
+     */
+    public function getAllByPostId(string $id): ?Comment;
     
     /**
      * @param Comment $comment

@@ -34,13 +34,13 @@ class CommentModel extends AbstractDomain
      * @return Comment
      * @throws Exception
      */
-    public function getCommentById(int $id): Comment
+    public function getAllByPostId(int $id): Comment
     {
         try{
             if (empty($id)) {
                 throw new Exception('Comment ID can not be empty');
             }
-            if (!$comment = $this->container->get(CommentRepositoryInterface::class)->getById($id)) {
+            if (!$comment = $this->container->get(CommentRepositoryInterface::class)->getAllByPostId($id)) {
                 throw new \Exception('Comment ID does not exist');
             }
             return $comment;
