@@ -5,7 +5,7 @@
     {% for item in post %}
         <div class="blogPost">
             <h1>Today: <a href="/blog/{{ item.id }}">{{ item.title }}</a></h1>
-            <p>{{ item.description|slice(0, 100) ~ '...' }}</p>
+            <p>{{ item.description|slice(0, 1000) ~ '...' }}</p>
             <p>{{ item.author }}</p>
         </div>
         <hr>

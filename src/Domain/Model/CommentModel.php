@@ -57,6 +57,9 @@ class CommentModel extends AbstractDomain
     public function addComment($array): Comment
     {
         try{
+            if (empty($array['name'])) {
+                throw new \Exception('Name is required');
+            }
             $comment    = new Comment($array);
             $comment->setCreatedAt(date('Y-m-d G:i:s'));
             return $this->container->get(CommentRepositoryInterface::class)->create($comment);
