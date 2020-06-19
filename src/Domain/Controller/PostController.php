@@ -48,10 +48,9 @@ class PostController extends Controller
     public function postView(Request $request, $id) {
         $post = $this->postModel->getPostById($id);
         $comment = $this->commentModel->getAllByPostId($id);
-        var_dump($comment);
-        die();
         return $this->render('blog/page.html.twig', array(
-          'post' => $post
+            'post' => $post,
+            'comment' => $comment
         ));
     }
 }

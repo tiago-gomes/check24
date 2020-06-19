@@ -49,8 +49,7 @@ class CommentRepository implements CommentRepositoryInterface, DoctrineAwareInte
         $qb = $this->getEntityManager()->createQueryBuilder();
         $qb->select('c')
           ->from(Comment::class, 'c')
-          ->where('c.post_id = :id')
-          ->setMaxResults(1);
+          ->where('c.postId = :id');
         
         $qb->setParameter('id', $id);
         

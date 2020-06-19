@@ -7,6 +7,18 @@
         <p>{{ post.description }}</p>
         <p>{{ post.author }}</p>
     </div>
+    <div class="showComment">
+        <h1>List Comments</h1>
+        {% for item in comment %}
+            <div clas="comment-item">
+                <p>
+                    {{ comment.id }} - <a href="{{ comment.url }}">{{ comment.url }} said {{ comment.dtCreated }}</a>
+                    </br>
+                    {{ comment.comment }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
     <div class="createComment">
         {% for message in app.flashes('success') %}
             <div class="alert alert-success">
