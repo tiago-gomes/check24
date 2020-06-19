@@ -1,34 +1,36 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block content %}
-    {% for message in app.flashes('success') %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    {% endfor %}
-    <h2>Available User</h2>
     <div class="table-responsive">
-        <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-                <td>firstName</td>
-                <td>lastName</td>
-                <td>Action</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in user %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <h2>Available User</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+            <thead>
                 <tr>
-                    <td>{{ item.firstName }}</td>
-                    <td>{{ item.lastName }}</td>
-                    <td>
-                        <p><a href="/user/view/{{ item.id }}">Edit</a></p>
-                        <p><a href="/user/delete/{{ item.id }}">Delete</a></p>
-                    </td>
+                    <td>firstName</td>
+                    <td>lastName</td>
+                    <td>Action</td>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for item in user %}
+                    <tr>
+                        <td>{{ item.firstName }}</td>
+                        <td>{{ item.lastName }}</td>
+                        <td>
+                            <p><a href="/admin/user/view/{{ item.id }}">Edit</a></p>
+                            <p><a href="/admin/user/delete/{{ item.id }}">Delete</a></p>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        <a class="btn btn-primary" href="/admin/user/add">Create new user</a>
     </div>
-    <a class="btn btn-primary" href="/user/add">Create new user</a>
 {% endblock %}

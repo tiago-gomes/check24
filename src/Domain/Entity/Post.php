@@ -149,6 +149,7 @@ class Post
             'id'        => $this->getId(),
             'title' => $this->getTitle(),
             'description' => $this->getDescription(),
+            'author' => $this->getAuthor(),
             'createdAt'    => $this->getCreatedAt()
         ];
 

@@ -3,7 +3,7 @@
 namespace App\Domain\Model;
 
 use \Exception;
-use App\Domain\Entity\Comment;
+use App\Domain\Entity\User;
 use App\Domain\Model\Repository\Contract\UserRepositoryInterface;
 use App\Domain\AbstractDomain;
 
@@ -31,10 +31,10 @@ class UserModel extends AbstractDomain
     
     /**
      * @param int $id
-     * @return Comment
+     * @return User
      * @throws Exception
      */
-    public function getUserById(int $id): Comment
+    public function getUserById(int $id): User
     {
         try{
             if (empty($id)) {
@@ -53,13 +53,13 @@ class UserModel extends AbstractDomain
     
     /**
      * @param $array
-     * @return Comment
+     * @return User
      * @throws Exception
      */
-    public function addUser($array): Comment
+    public function addUser($array): User
     {
         try{
-            $user    = new Comment($array);
+            $user    = new User($array);
             if ($userExists = $this->container->get(UserRepositoryInterface::class)->getByEmail($user->getEmail())) {
                 throw new \Exception('An User already exists with the provided email!');
             }
@@ -73,10 +73,10 @@ class UserModel extends AbstractDomain
     /**
      * @param string $id
      * @param $array
-     * @return Comment
+     * @return User
      * @throws Exception
      */
-    public function updateUser(string $id, $array):  Comment
+    public function updateUser(string $id, $array):  User
     {
         try{
             if (!$user = $this->container->get(UserRepositoryInterface::class)->getById($id)) {

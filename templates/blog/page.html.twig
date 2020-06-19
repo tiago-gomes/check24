@@ -1,2 +1,39 @@
 {% extends 'base.html.twig' %}
 {% block content %}
+    <div class="article">
+        <h1>Today: {{ post.title }}</h1>
+        <p>{{ post.description }}</p>
+        <p>{{ post.author }}</p>
+    </div>
+    <div class="createComment">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <form action="/comment/create/{{ post.id }}" method="post">
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" placeholder="name">
+            </div>
+            <div class="form-group">
+                <label for="email">email</label>
+                <input type="text" class="form-control" name="email" id="name" aria-describedby="emailHelp" placeholder="email">
+            </div>
+            <div class="form-group">
+                <label for="url">url</label>
+                <input type="text" class="form-control" name="url" id="url" aria-describedby="urlHelp" placeholder="url">
+            </div>
+            <div class="form-group">
+                <label for="comment">comment</label>
+                <input type="text" class="form-control" name="comment" id="comment" aria-describedby="commentHelp" placeholder="comment">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}

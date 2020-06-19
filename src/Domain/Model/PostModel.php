@@ -3,7 +3,7 @@
 namespace App\Domain\Model;
 
 use \Exception;
-use App\Domain\Entity\Comment;
+use App\Domain\Entity\Post;
 use App\Domain\Model\Repository\Contract\PostRepositoryInterface;
 use App\Domain\AbstractDomain;
 
@@ -31,10 +31,10 @@ class PostModel extends AbstractDomain
     
     /**
      * @param int $id
-     * @return Comment
+     * @return Post
      * @throws Exception
      */
-    public function getPostById(int $id): Comment
+    public function getPostById(int $id): Post
     {
         try{
             if (empty($id)) {
@@ -53,13 +53,13 @@ class PostModel extends AbstractDomain
     
     /**
      * @param $array
-     * @return Comment
+     * @return Post
      * @throws Exception
      */
-    public function addPost($array): Comment
+    public function addPost($array): Post
     {
         try{
-            $post    = new Comment($array);
+            $post    = new Post($array);
             $post->setCreatedAt(date('Y-m-d G:i:s'));
             return $this->container->get(PostRepositoryInterface::class)->create($post);
         } catch (\Exception $e) {
@@ -70,10 +70,10 @@ class PostModel extends AbstractDomain
     /**
      * @param string $id
      * @param $array
-     * @return Comment
+     * @return Post
      * @throws Exception
      */
-    public function updatePost(string $id, $array):  Comment
+    public function updatePost(string $id, $array):  Post
     {
         try{
             if (!$post = $this->container->get(PostRepositoryInterface::class)->getById($id)) {

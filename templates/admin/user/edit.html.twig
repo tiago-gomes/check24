@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 {% block content %}
     <h2>Edit User</h2>
     {% for message in app.flashes('success') %}
@@ -6,7 +6,7 @@
             {{ message }}
         </div>
     {% endfor %}
-    <form action="/user/update/{{ user.id }}" method="user">
+    <form action="/admin/user/update/{{ user.id }}" method="user">
         
         <div class="form-group">
             <label for="firstName">FirstName</label>

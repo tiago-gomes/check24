@@ -34,7 +34,7 @@ class AdminPostController extends Controller
      */
     public function searchView() {
         $post = $this->postModel->getAll();
-        return $this->render('admin/post/list.html.twig', array(
+        return $this->render('/admin/post/list.html.twig', array(
           'post' => $post
         ));
     }
@@ -44,7 +44,7 @@ class AdminPostController extends Controller
      * @throws \Exception
      */
     public function addView() {
-        return $this->render('admin/post/add.html.twig');
+        return $this->render('/admin/post/add.html.twig');
     }
 
     /**
@@ -59,7 +59,7 @@ class AdminPostController extends Controller
         if (empty($post)) {
             throw new \Exception('Post ID does not exist!!!', 412);
         }
-        return $this->render('admin/post/edit.html.twig', array(
+        return $this->render('/admin/post/edit.html.twig', array(
           'post' => $post->toArray()
         ));
     }
@@ -73,7 +73,7 @@ class AdminPostController extends Controller
     public function addAction(Request $request) {
         $post = $this->postModel->addPost($request->request->all());
         $this->addFlash('success', 'Post as been created!!!');
-        return $this->redirect('admin/post', 302);
+        return $this->redirect('/admin/post', 302);
     }
 
     /**
@@ -88,7 +88,7 @@ class AdminPostController extends Controller
     public function updateAction($id, Request $request) {
         $post = $this->postModel->updatePost($id, $request->request->all());
         $this->addFlash('success', 'Post as been updated!!!');
-        return $this->redirect('admin/post/view/'. $post->getId(), 302);
+        return $this->redirect('/admin/post/view/'. $post->getId(), 302);
     }
 
     /**
@@ -102,6 +102,6 @@ class AdminPostController extends Controller
     public function deleteAction($id) {
         $this->postModel->removePost($id);
         $this->addFlash('success', 'Post as been deleted!!!');
-        return $this->redirect('admin/post', 302);
+        return $this->redirect('/admin/post', 302);
     }
 }

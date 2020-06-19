@@ -1,8 +1,15 @@
-{% extends 'admin.html.twig' %}
+{% extends 'blog.html.twig' %}
 {% block content %}
 
 <div class="content">
-    homepage
+    {% for item in post %}
+        <div class="blogPost">
+            <h1>Today: {{ item.title }}</h1>
+            <p>{{ item.description }}</p>
+            <p>{{ item.author }}</p>
+        </div>
+    {% endfor %}
 </div>
 
+{% endblock %}
 

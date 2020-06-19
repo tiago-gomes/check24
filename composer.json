@@ -19,6 +19,7 @@
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "*",
         "symfony/messenger": "*",
+        "symfony/orm-pack": "^1.0",
         "symfony/phpunit-bridge": "*",
         "symfony/security": "*",
         "symfony/security-csrf": "*",
@@ -32,6 +33,7 @@
     "require-dev": {
         "codeception/codeception": "^2.5",
         "symfony/dotenv": "*",
+        "symfony/maker-bundle": "^1.19",
         "symfony/test-pack": "^1.0"
     },
     "config": {

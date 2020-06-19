@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 {% block content %}
     <h2>Edit Post</h2>
     {% for message in app.flashes('success') %}
@@ -6,7 +6,7 @@
             {{ message }}
         </div>
     {% endfor %}
-    <form action="/post/update/{{ post.id }}" method="post">
+    <form action="/admin/post/update/{{ post.id }}" method="post">
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp" placeholder="title" value="{{ post.title }}">
@@ -14,6 +14,10 @@
         <div class="form-group">
             <label for="description">Description</label>
             <input type="text" class="form-control" name="description" id="description" aria-describedby="descriptionHelp" placeholder="Description"  value="{{ post.description }}">
+        </div>
+        <div class="form-group">
+            <label for="author">author</label>
+            <input type="text" class="form-control" name="author" id="author" aria-describedby="authorHelp" placeholder="author" value="{{ post.author }}">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

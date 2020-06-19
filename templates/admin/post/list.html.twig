@@ -1,34 +1,36 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block content %}
-    {% for message in app.flashes('success') %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    {% endfor %}
-    <h2>Available Post</h2>
     <div class="table-responsive">
-        <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-                <td>Title</td>
-                <td>Description</td>
-                <td>Action</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in post %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <h2>Available Post</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+            <thead>
                 <tr>
-                    <td>{{ item.title }}</td>
-                    <td>{{ item.description }}</td>
-                    <td>
-                        <p><a href="/post/view/{{ item.id }}">Edit</a></p>
-                        <p><a href="/post/delete/{{ item.id }}">Delete</a></p>
-                    </td>
+                    <td>Title</td>
+                    <td>Description</td>
+                    <td>Action</td>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for item in post %}
+                    <tr>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>
+                            <p><a href="/admin/post/view/{{ item.id }}">Edit</a></p>
+                            <p><a href="/admin/post/delete/{{ item.id }}">Delete</a></p>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        <a class="btn btn-primary" href="/admin/post/add">Create new post</a>
     </div>
-    <a class="btn btn-primary" href="/post/add">Create new post</a>
 {% endblock %}
