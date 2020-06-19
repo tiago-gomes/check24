@@ -29,10 +29,13 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/{id}, name="articlePost", methods={"GET"})
+     * @param Request $request
+     * @param int $id
+     * @Route("/{id}", name="articlePost", methods={"GET"})
+     * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Exception
      */
-    public function postView(int $id) {
+    public function postView(Request $request, $id) {
         $post = $this->postModel->getPostById($id);
         return $this->render('blog/page.html.twig', array(
           'post' => $post

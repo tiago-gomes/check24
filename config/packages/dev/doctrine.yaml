@@ -3,11 +3,17 @@ doctrine:
     default_connection: dev
     connections:
       dev:
-        driver: 'pdo_sqlite'
-        memory: false
-        path: '/code/docker/sqlite/lyllodoo'
-        user: '%env(DB_TEST_USERNAME)%'
-        password: '%env(DB_TEST_PASSWORD)%'
+        driver: 'pdo_mysql'
+        server_version: '5.7'
+        charset: utf8mb4
+        default_table_options:
+          charset: utf8mb4
+          collate: utf8mb4_general_ci
+        host: '%env(DB_DEV_HOST)%'
+        port: '%env(DB_DEV_PORT)%'
+        dbname: '%env(DB_DEV_DATABASE)%'
+        user: '%env(DB_DEV_USERNAME)%'
+        password: '%env(DB_DEV_PASSWORD)%'
 
   orm:
     auto_generate_proxy_classes: '%kernel.debug%'
