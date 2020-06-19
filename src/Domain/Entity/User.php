@@ -60,6 +60,22 @@ class User
         if (!empty($array['id']) ) {
             $this->setId($array['id']);
         }
+    
+        if (!empty($array['firstName']) ) {
+            $this->setFirstName($array['firstName']);
+        }
+    
+        if (!empty($array['lastName']) ) {
+            $this->setLastName($array['lastName']);
+        }
+    
+        if (!empty($array['email']) ) {
+            $this->setEmail($array['email']);
+        }
+    
+        if (!empty($array['password']) ) {
+            $this->setPassword($array['password']);
+        }
         
         return $this;
     }
