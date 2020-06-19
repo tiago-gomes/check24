@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'blog.html.twig' %}
 {% block content %}
     <div class="article">
         <h1>Today: {{ post.title }}</h1>
@@ -17,6 +17,7 @@
             </div>
         {% endfor %}
         <form action="/comment/create/{{ post.id }}" method="post">
+            <h1>Create a new Comment</h1>
             <div class="form-group">
                 <label for="name">name</label>
                 <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" placeholder="name">

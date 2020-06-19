@@ -54,6 +54,18 @@ class Post
         if (!empty($array['id']) ) {
             $this->setId($array['id']);
         }
+    
+        if (!empty($array['title']) ) {
+            $this->setTitle($array['title']);
+        }
+    
+        if (!empty($array['description']) ) {
+            $this->setDescription($array['description']);
+        }
+    
+        if (!empty($array['author']) ) {
+            $this->setAuthor($array['author']);
+        }
         
         return $this;
     }

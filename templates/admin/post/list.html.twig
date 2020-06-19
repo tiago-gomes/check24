@@ -21,7 +21,7 @@
                 {% for item in post %}
                     <tr>
                         <td>{{ item.title }}</td>
-                        <td>{{ item.description }}</td>
+                        <td>{{ item.description|slice(0, 50) ~ '...' }}</td>
                         <td>
                             <p><a href="/admin/post/view/{{ item.id }}">Edit</a></p>
                             <p><a href="/admin/post/delete/{{ item.id }}">Delete</a></p>

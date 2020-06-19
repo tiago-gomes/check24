@@ -31,7 +31,7 @@ class PostController extends Controller
     /**
      * @param Request $request
      * @param int $id
-     * @Route("/{id}", name="articlePost", methods={"GET"})
+     * @Route("/blog/{id}", name="articlePost", methods={"GET"})
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Exception
      */
