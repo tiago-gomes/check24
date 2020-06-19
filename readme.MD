@@ -2,9 +2,11 @@
 # Installation
 - docker-compose up -d --build
 - composer install
-- php console doctrine:migrations:execute 20180906074409
-- Navigate to http://127.0.0.1:8080/address
+- php console doctrine:migrations:migrate
 
-![alt text](download2.png)
+# Links
+- http://127.0.0.1:8080/admin/post
+- http://127.0.0.1:8080/blog
+- http://127.0.0.1:8080/lmprint
 
 
