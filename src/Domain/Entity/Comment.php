@@ -55,7 +55,7 @@ class Comment
      */
     public function populate(array $array): ?self
     {
-        
+    
         if (!empty($array['id']) ) {
             $this->setId($array['id']);
         }

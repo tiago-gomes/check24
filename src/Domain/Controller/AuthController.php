@@ -37,4 +37,12 @@ class AuthController extends Controller
     public function loginView() {
         return $this->render('login.html.twig');
     }
+    
+    /**
+     * @Route("/authenticate", name="authenticate", methods={"Post"})
+     * @throws \Exception
+     */
+    public function authenticateAction() {
+        return $this->render('login.html.twig');
+    }
 }
