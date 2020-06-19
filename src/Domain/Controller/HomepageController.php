@@ -29,7 +29,7 @@ class HomepageController extends Controller
     }
 
     /**
-     * @Route("/", name="homepage", methods={"GET"})
+     * @Route("/blog/", name="homepage", methods={"GET"})
      * @throws \Exception
      */
     public function homepageView() {
