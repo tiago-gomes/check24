@@ -44,7 +44,7 @@ class CommentRepository implements CommentRepositoryInterface, DoctrineAwareInte
     /**
      * @inheritdoc
      */
-    public function getAllByPostId(string $id): ?Comment
+    public function getAllByPostId(string $id): ?array
     {
         $qb = $this->getEntityManager()->createQueryBuilder();
         $qb->select('c')
@@ -52,8 +52,8 @@ class CommentRepository implements CommentRepositoryInterface, DoctrineAwareInte
           ->where('c.postId = :id');
         
         $qb->setParameter('id', $id);
-        
-        return $qb->getQuery()->getOneOrNullResult();
+    
+        return $qb->getQuery()->getArrayResult();
     }
     
 

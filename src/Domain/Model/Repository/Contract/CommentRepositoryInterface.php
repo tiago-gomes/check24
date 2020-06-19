@@ -23,9 +23,9 @@ interface CommentRepositoryInterface
     
     /**
      * @param string $id
-     * @return Comment|null
+     * @return array
      */
-    public function getAllByPostId(string $id): ?Comment;
+    public function getAllByPostId(string $id): ?array;
     
     /**
      * @param Comment $comment
