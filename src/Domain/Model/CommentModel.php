@@ -38,12 +38,10 @@ class CommentModel extends AbstractDomain
     {
         try{
             if (empty($id)) {
-                throw new Exception('Comment ID can not be empty');
+                throw new Exception('Post ID can not be empty');
             }
-            if (!$comment = $this->container->get(CommentRepositoryInterface::class)->getAllByPostId($id)) {
-                throw new \Exception('Comment ID does not exist');
-            }
-            return $comment;
+            $comments = $this->container->get(CommentRepositoryInterface::class)->getAllByPostId($id);
+            return $comments;
         } catch (\InvalidArgumentException $e) {
             throw new \InvalidArgumentException($e->getMessage());
         } catch (\Exception $e) {
