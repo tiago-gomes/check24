@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<h2>Add Post</h2>
+<form action="/post/create" method="post">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp" placeholder="title">
+    </div>
+    <div class="form-group">
+        <label for="title">description</label>
+        <input type="text" class="form-control" name="description" id="description" aria-describedby="descriptionHelp" placeholder="description">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
+

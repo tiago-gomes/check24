@@ -1,0 +1,59 @@
+web:
+  hostname: nginx
+  domainname: check24
+  env_file:
+    - .env
+  build: ./docker/web
+  container_name: "check24_web"
+  ports:
+    - "8080:80"
+  volumes:
+    - ./:/code
+    - ./docker/web/api.conf:/etc/nginx/conf.d/api.conf
+    - ./docker/log/nginx:/var/log/nginx
+  restart: always
+  links:
+    - app
+    - sqlite
+app:
+  env_file:
+    - .env
+  build: ./docker/app
+  container_name: "check24_app"
+  environment:
+    PHP_IDE_CONFIG: "serverName=API Server"
+  volumes:
+    - ./:/code
+  links:
+    - sqlite
+  ports:
+    - "1337:1337"
+  restart: always
+composer:
+  build: ./docker/composer
+  container_name: "check24_composer"
+  volumes_from:
+  - app
+sqlite:
+  image: nouchka/sqlite3:latest
+  stdin_open: true
+  tty: true
+  volumes:
+  - ./docker/sqlite/:/root/db/
+db:
+  hostname: mysql
+  domainname: api.test
+  image: mysql:5.7
+  container_name: "check24_mysql"
+  command: "--innodb_use_native_aio=0 --wait_timeout=28800"
+  environment:
+  - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+  - MYSQL_DATABASE=${DB_DATABASE}
+  - MYSQL_USER=${DB_USERNAME}
+  - MYSQL_PASSWORD=${DB_PASSWORD}
+  volumes:
+  - ./docker/data:/var/lib/mysql
+  - ./:/code
+  restart: always
+  ports:
+  - "3306:3306"
