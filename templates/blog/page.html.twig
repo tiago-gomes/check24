@@ -12,9 +12,9 @@
         {% for item in comment %}
             <div clas="comment-item">
                 <p>
-                    {{ comment.id }} - <a href="{{ comment.url }}">{{ comment.url }} said {{ comment.dtCreated }}</a>
+                    {{ item.id }} - <a href="{{ item.url }}">{{ item.url }}</a> said {{ item.createdAt|date('Y-m-d\\TH:i:sP') }}
                     </br>
-                    {{ comment.comment }}
+                    {{ item.comment }}
                 </p>
             </div>
         {% endfor %}

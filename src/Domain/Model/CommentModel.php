@@ -31,7 +31,7 @@ class CommentModel extends AbstractDomain
     
     /**
      * @param int $id
-     * @return Comment
+     * @return array|null
      * @throws Exception
      */
     public function getAllByPostId(int $id): ?array
